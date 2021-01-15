@@ -1,0 +1,5 @@
+-- Jared Day
+-- 10/29/17
+
+-- Heirarchy stopwatch. Same stopwatch but connections are made in VHDL (using the new way (VHDL -93)) to instantiate 
+-- components. 

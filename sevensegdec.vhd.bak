@@ -1,0 +1,40 @@
+-- Jared Day
+-- 9/18/17
+
+-- Seven Segment Display Lab
+
+-- This program will use the four switches on the FPGA board to 
+-- control the output on the seven segment display on the board.
+
+-- THIS ONE HAS a decimal point
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY sevensegdec IS
+PORT(		
+		i_A		: IN std_logic_vector(3 DOWNTO 0);
+		o_OUT		: OUT std_logic_vector(7 DOWNTO 0));
+END sevenseg;
+
+ARCHITECTURE ckt OF sevensegdec IS
+	BEGIN
+		WITH i_A SELECT
+		
+		o_OUT <= "10000001" WHEN "0000",
+					"11110011" WHEN "0001",
+					"01001001" WHEN "0010",
+					"01100001" WHEN "0011",
+					"00110011" WHEN "0100",
+					"00100101" WHEN "0101",
+					"00000101" WHEN "0110",
+					"11110001" WHEN "0111",
+					"00000001" WHEN "1000",
+					"00110001" WHEN "1001",
+					"00010001" WHEN "1010",
+					"00000111" WHEN "1011",
+					"10001101" WHEN "1100",
+					"01000011" WHEN "1101",
+					"00001101" WHEN "1110",
+					"00011101" WHEN "1111";
+END ckt;
